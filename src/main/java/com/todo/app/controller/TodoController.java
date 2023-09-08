@@ -31,6 +31,10 @@ public class TodoController {
 
     @RequestMapping(value="/add")
     public String add(Todo todo) {
+    	if(todo.getCategory()=="") {
+    	    todo.setCategory("なし");                       
+    	}
+    	System.out.println(todo);
         todoMapper.add(todo);
         return "redirect:/";
     }
